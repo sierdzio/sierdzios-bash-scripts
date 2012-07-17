@@ -1,0 +1,14 @@
+#!/bin/sh
+
+LD_LIBRARY_PATH=/usr/local/Trolltech/Qt-4.8.1/lib
+PATH=/usr/local/Trolltech/Qt-4.8.1/bin:$PATH
+QTDIR=/usr/local/Trolltech/Qt-4.8.1
+QT_PLUGIN_PATH=/usr/local/Trolltech/Qt-4.8.1/plugins
+
+export LD_LIBRARY_PATH
+export PATH
+export QTDIR
+export QT_PLUGIN_PATH
+
+cd /home/sierdzio/qt/qt-everywhere-opensource-src-4.8.1/bin/
+./assistant

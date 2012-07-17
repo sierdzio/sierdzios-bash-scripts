@@ -1,0 +1,10 @@
+#!/bin/sh
+# Usage: archive FILE
+# Output: filename_yyyy.MM.dd.tar.bz2
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: archive FILE
+Output: filename_yyyy.MM.dd.tar.bz2"
+else
+  COMMAND="_$(date +%Y.%m.%d).tar.bz2"
+  tar -cjf "${1}"$COMMAND "${1}"
+fi
