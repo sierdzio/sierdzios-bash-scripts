@@ -2,8 +2,8 @@
 # Usage: autoumount (no arguments)
 # Result: unmounts the data drive (/dev/sda1).
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: autoumount (no arguments)
-Result: unmounts the data drive (/dev/sda1)."
+  echo "Usage: autoumount (no arguments)"
+  echo "Result: unmounts the data drive (/dev/sda1)."
 else
   sudo umount /dev/sda1
 fi

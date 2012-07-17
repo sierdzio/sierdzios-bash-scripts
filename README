@@ -1,0 +1,18 @@
+sierdzio's bin scripts - an useful collection of bash scripts.
+
+Distributed under GNU GPLv3 license.
+
+Those currently include:
+ - a                    - synonym for git add .
+ - archive              - packs the file/ folder given as ${1} into an tar.bz2 archive, adds current date to it's name
+ - assistant            - launches Qt Assistant from default location (this script is broken, but can be fixed)
+ - automount            - a stub for easy mounting drives
+ - autoumount           - a stub for easy unmounting (not needed too much)
+ - c                    - a synonym for git commit
+ - dcrawrecursive       - runs dcraw -T recursively on every file in folders below and including current one
+ - dist-upgrade         - runs a repo update and distribution upgrade (apt-get)
+ - fuck                 - displays a fortune cookie when you are desperate enough to curse on terminal
+ - grep_error           - greps for errors (old script, needs review)
+ - s                    - synonym for git status
+ - updateQmlTo2.0       - updates all files below current folder from Qml 1.0 to 2.0
+ - upgrade              - performs a repo update and system upgrade

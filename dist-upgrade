@@ -2,8 +2,8 @@
 # Usage: dist-upgrade (no arguments)
 # Result: Fetches apt updates and runs apt dist-upgrade.
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: dist-upgrade (no arguments)
-Result: Fetches apt updates and runs apt dist-upgrade."
+  echo "Usage: dist-upgrade (no arguments)"
+  echo "Result: Fetches apt updates and runs apt dist-upgrade."
 else
   sudo apt-get update
   sudo apt-get dist-upgrade
