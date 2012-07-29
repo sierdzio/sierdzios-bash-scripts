@@ -6,6 +6,8 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: autmount (no arguments needed)"
   echo "Result: mounts /dev/sda1 (data HDD) to /home/sierdzio/data"
   echo "with read and write access."
+  echo
+  echo "Requires sudo."
 else
   sudo mount -w /dev/sda1 /home/sierdzio/data
 fi

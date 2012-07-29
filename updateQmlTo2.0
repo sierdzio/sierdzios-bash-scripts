@@ -1,8 +1,16 @@
 #! /bin/bash
-for file in $(find . -name "*.qml")
-    do
-        echo "Replacing: $file"
-        sed 's/import QtQuick 1.1/import QtQuick 2.0/' $file > $file.tmp
-        mv $file.tmp $file
-        echo "Replacement done on : $file"
-done 
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: updateQmlTo2.0"
+  echo "Result: Goes through all directories and changes QtQuick imports"
+  echo "in all files."
+  echo
+  echo "Requires sed."
+else
+  for file in $(find . -name "*.qml")
+      do
+          echo "Replacing: $file"
+          sed 's/import QtQuick 1.1/import QtQuick 2.0/' $file > $file.tmp
+          mv $file.tmp $file
+          echo "Replacement done on : $file"
+  done
+fi

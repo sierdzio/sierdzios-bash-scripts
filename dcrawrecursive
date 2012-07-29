@@ -16,4 +16,12 @@ for d in *; do
 done
 }
 
-recursiverm
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: drawrecursive"
+  echo "Recursively goes through all directories, and converts all"
+  echo "RAW files into tiff."
+  echo
+  echo "Requires dcraw."
+else
+  recursiverm
+fi

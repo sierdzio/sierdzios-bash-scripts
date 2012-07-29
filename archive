@@ -4,6 +4,8 @@
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: archive FILE"
   echo "Output: filename_yyyy.MM.dd.tar.bz2"
+  echo
+  echo "Compression is performed using parallel bzip2 (pbzip2)."
 else
   COMMAND="_$(date +%Y.%m.%d).tar"
   tar -cf "${1}"$COMMAND "${1}"

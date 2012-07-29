@@ -1,3 +1,10 @@
 #! /bin/bash
-sudo apt-get update
-sudo apt-get upgrade 
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: upgrade (no arguments)"
+  echo "Result: Fetches apt updates and runs apt upgrade."
+  echo
+  echo "Requires apt-get and sudo."
+else
+  sudo apt-get update
+  sudo apt-get upgrade 
+fi

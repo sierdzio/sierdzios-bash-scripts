@@ -1,3 +1,12 @@
-echo "################"
-fortune -a
-echo "################"
+#! /bin/bash
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: fuck"
+  echo "Use when annoyed, because the code is not working, etc. Displays"
+  echo "a random fortune cookie (including offensive ones!)."
+  echo
+  echo "Requires fortunes. Will also use fortunes-off if available."
+else
+  echo "################"
+  fortune -a
+  echo "################"
+fi
