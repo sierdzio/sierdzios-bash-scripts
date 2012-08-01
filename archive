@@ -9,5 +9,5 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
 else
   COMMAND="_$(date +%Y.%m.%d).tar"
   tar -cf "${1}"$COMMAND "${1}"
-  pbzip2 "${1}"$COMMAND
+  pbzip2 -v "${1}"$COMMAND
 fi
