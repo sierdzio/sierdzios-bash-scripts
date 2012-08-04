@@ -1,16 +1,23 @@
 #! /bin/bash
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: qt5compile (no arguments)"
+  echo "Usage: qt5compile [--c++03]"
   echo "Performs a full clean, configure and build of Qt5."
   echo
   echo "Does not update any sources. Needs to be run from Qt's root dir."
+  echo "If invoked with --c++03, it will compile without using C++11 features."
+  echo "If not, it will use full power of C++11."
 else
   unset QTDIR
   export PATH="$PWD/qtbase/bin:$PWD/qtrepotools/bin:$PATH"
 
   git submodule foreach --recursive 'git clean -dfx'
 
-  ./configure -developer-build -opensource -confirm-license -no-gtkstyle -nomake tests -nomake examples -nomake demos
-  ./build -j 9
+  if [ "${1}" = "--c++03" ]; then
+    CXXFLAGS="-std=c++03" ./configure -developer-build -opensource -confirm-license -no-gtkstyle -nomake tests -nomake examples -nomake demos -no-c++11
+    CXXFLAGS="-std=c++03" ./build -j 9
+  else  
+    ./configure -developer-build -opensource -confirm-license -no-gtkstyle -nomake tests -nomake examples -nomake demos
+    ./build -j 9
+  fi
 fi
 
