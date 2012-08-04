@@ -4,15 +4,25 @@ Distributed under GNU GPLv3 license.
 
 Those currently include ( - name (dependencies) - description):
  - a                    (git)           - synonym for git add .
- - archive              (pbzip2, tar)   - packs the file/ folder given as ${1} into an tar.bz2 archive, adds current date to it's name
- - assistant            (qt)            - launches Qt Assistant from default location (this script is broken, but can be fixed)
+ - archive              (pbzip2, tar)   - packs the file/ folder given as ${1}
+                                          into an tar.bz2 archive, adds current
+                                          date to it's name
+ - assistant            (qt)            - launches Qt Assistant from default
+                                          location (this script is broken,
+                                          but can be fixed)
  - automount            (mount, sudo)   - a stub for easy mounting drives
- - autoumount           (umount, sudo)  - a stub for easy unmounting (not needed too much)
+ - autoumount           (umount, sudo)  - a stub for easy unmounting (not needed)
  - c                    (git)           - a synonym for git commit
- - dcrawrecursive       (dcraw)         - runs dcraw -T recursively on every file in folders below and including current one
+ - dcrawrecursive       (dcraw)         - runs dcraw -T recursively on every
+                                          file in folders below and including current one
  - dist-upgrade         (sudo, apt-get) - runs a repo update and distribution upgrade
- - fuck                 (fortunes)      - displays a fortune cookie when you are desperate enough to curse on terminal
+ - fuck                 (fortunes)      - displays a fortune cookie when
+                                          you are desperate enough to curse on terminal
  - grep_error           (grep)          - greps for errors (old script, needs review)
+ - qt5compile           (qt5 sources)   - sets up the environment, cleans the source,
+                                          configures and builds. Needs to be
+                                          run from Qt5's root dir
  - s                    (git)           - synonym for git status
- - updateQmlTo2.0       (sed)           - updates all files below current folder from Qml 1.0 to 2.0
+ - updateQmlTo2.0       (sed)           - updates all files below current folder
+                                          from Qml 1.0 to 2.0
  - upgrade              (sudo, apt-get) - performs a repo update and system upgrade
