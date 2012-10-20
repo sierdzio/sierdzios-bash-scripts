@@ -3,14 +3,14 @@
 # Recursive dcraw, with -T as output.
 recursiverm() {
 for d in *; do
-  if [ -d $d ]; then
-    (cd $d
+  if [ -d "$d" ]; then
+    (cd "$d"
     echo Entered $PWD
     recursiverm)
   else
     if [[ $d == *.CR2 ]]; then
       echo Processing $d in: $PWD
-      dcraw -T $d && convert ${d%.*}.tiff ${d%.*}.jpg && rm ${d%.*}.tiff
+      dcraw -T $d && convert -quality 80 -quiet ${d%.*}.tiff ${d%.*}.jpg && rm ${d%.*}.tiff
     fi
   fi
 done
