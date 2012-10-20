@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Recursive dcraw, with -T as output.
+recursiverm() {
+for d in *; do
+  if [ -d $d ]; then
+    (cd $d
+    echo Entered $PWD
+    recursiverm)
+  else
+    if [[ $d == *.CR2 ]]; then
+      echo Processing $d in: $PWD
+      dcraw -T $d && convert ${d%.*}.tiff ${d%.*}.jpg && rm ${d%.*}.tiff
+    fi
+  fi
+done
+}
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: cr22jpeg"
+  echo "Recursively goes through all directories, and converts all"
+  echo "RAW files into jpeg."
+  echo
+  echo "Requires dcraw and imagemagick."
+else
+  recursiverm
+fi
