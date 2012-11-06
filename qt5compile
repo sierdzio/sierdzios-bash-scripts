@@ -15,7 +15,7 @@ else
   if [ "${1}" = "--c++03" ]; then
     CXXFLAGS="-std=c++03" ./configure -developer-build -opensource -confirm-license -no-gtkstyle -nomake tests -nomake examples -nomake demos -no-c++11
     CXXFLAGS="-std=c++03" ./build -j 9
-  else  
+  else
     ./configure -developer-build -opensource -confirm-license -no-gtkstyle -nomake tests -nomake examples -nomake demos
     ./build -j 9
   fi

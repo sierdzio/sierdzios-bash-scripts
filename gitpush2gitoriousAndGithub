@@ -1,4 +1,12 @@
 #!/bin/bash
-
-git push gitorious ${1}
-git push github ${1}
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: gitpush2gitoriousAndGithub"
+  echo "Pushes a branch specified with first argument"
+  echo "to both Gitorious and Github. Remotes need to be set to names:"
+  echo "gitorious and github"
+  echo
+  echo "Requires git."
+else
+  git push gitorious ${1}
+  git push github ${1}
+fi
