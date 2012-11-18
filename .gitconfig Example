@@ -10,3 +10,5 @@
         c = commit
         a = add .
         pretty = log --pretty=oneline
+[color]
+	ui = true
