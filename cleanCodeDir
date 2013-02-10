@@ -1,0 +1,39 @@
+#!/bin/bash
+# Usage: cleanCodeDir
+# Result: all makefiles and temporary files will be removed, recursively.
+
+recursiverm() {
+for d in *; do
+  if [ -d "$d" ]; then
+    (cd "$d"
+    echo Entered $PWD
+    recursiverm)
+  else
+    REMOVE=false
+    if [[ $d == *~ ]]; then
+      REMOVE=true
+    elif [[ $d == *.o ]]; then
+      REMOVE=true
+    elif [[ $d == moc_* ]]; then
+      REMOVE=true
+    elif [[ $d == Makefile ]]; then
+      REMOVE=true
+    elif [[ $d == *.o ]]; then
+      REMOVE=true
+    fi
+    
+    
+    if $REMOVE ; then
+      echo Removing $d
+      rm $d
+    fi
+  fi
+done
+}
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: cleanCodeDir"
+  echo "Result: all makefiles and temporary files will be removed, recursively."
+else
+  recursiverm
+fi
