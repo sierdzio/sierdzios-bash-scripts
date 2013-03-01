@@ -2,16 +2,13 @@ sierdzio's bin scripts - an useful collection of bash scripts.
 
 Distributed under GNU GPLv3 license.
 
-Those currently include ( - name (dependencies) - description):
+Those currently include:
+  (name)                (dependencies)   (description)
  - a                    (git)           - synonym for git add .
  - archive              (pbzip2, tar)   - packs the file/ folder given as ${1}
                                           into an tar.bz2 archive, adds current
                                           date to it's name
- - assistant            (qt)            - launches Qt Assistant from default
-                                          location (this script is broken,
-                                          but can be fixed)
- - automount            (mount, sudo)   - a stub for easy mounting drives
- - autoumount           (umount, sudo)  - a stub for easy unmounting (not needed)
+ - automount            (mount, sudo)   - a stub for mounting drives easily
  - c                    (git)           - a synonym for git commit
  - dcrawrecursive       (dcraw)         - runs dcraw -T recursively on every
                                           file in folders below and including current one
@@ -22,9 +19,6 @@ Those currently include ( - name (dependencies) - description):
  - gitpush2gitoriousAndGithub (git)     - push a branch named in the first argument to both
                                           gitorious and github. Requires remotes to be set up
  - grep_error           (grep)          - greps for errors (old script, needs review)
- - qt5compile           (qt5 sources)   - sets up the environment, cleans the source,
-                                          configures and builds. Needs to be
-                                          run from Qt5's root dir
  - s                    (git)           - synonym for git status
  - updateQmlTo2.0       (sed)           - updates all files below current folder
                                           from Qml 1.0 to 2.0

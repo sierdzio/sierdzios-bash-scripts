@@ -9,5 +9,5 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo
   echo "Requires sudo."
 else
-  sudo mount -w /dev/sda1 /home/sierdzio/data
+  sudo mount -w /dev/sda1 /home/$HOME/data
 fi
