@@ -1,0 +1,22 @@
+#! /bin/bash
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: setCpuFrequency frequencyInMhz"
+  echo "Result: Sets frequency of all CPU cores to frequencyInMhz"
+  echo
+  echo "Requires cpufrequtils"
+else
+  CPUS=$(grep -c ^processor /proc/cpuinfo)
+  let CPUS-=1
+
+  while [ $CPUS -gt '-1' ]; do
+    echo Setting CPU $CPUS to: ${1} Mhz
+    freqtring="${1}Mhz"
+    sudo cpufreq-set -f $freqtring -c $CPUS
+    let CPUS=CPUS-1
+  done
+fi
+
+
+
+
+
