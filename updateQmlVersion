@@ -3,6 +3,7 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: updateQmlVersion from to"
   echo "Result: Goes through all directories and changes QtQuick imports"
   echo "in all files."
+  echo "Example: updateQmlVersion 1.1 2.0"
   echo
   echo "Requires sed."
 else
