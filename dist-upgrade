@@ -3,10 +3,33 @@
 # Result: Fetches apt updates and runs apt dist-upgrade.
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: dist-upgrade (no arguments)"
-  echo "Result: Fetches apt updates and runs apt dist-upgrade."
+  echo "Result: Fetches updates and updates the system. Works on Ubuntu family"
+  echo "of systems, as well as on openSUSE."
   echo
-  echo "Requires apt-get and sudo."
+  echo "Requires root permissions."
 else
-  sudo apt-get update
-  sudo apt-get dist-upgrade
+  OS=$(lsb_release -a)
+
+  UBUNTU=$(echo $OS | grep buntu)
+  SUSE=$(echo $OS | grep SUSE)
+
+  if [ -n "${UBUNTU}" ]; then
+    echo "Ubuntu family, will use apt-get"
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    echo "Done"
+    exit
+  fi
+
+  if [ -n "${SUSE}" ]; then
+    echo "SUSE family, will use zypper"
+    sudo zypper refresh
+    sudo zypper update
+#    sudo zypper dist-upgrade
+    echo "Done"
+    exit
+  fi
+
+  echo "Unknown OS. Sorry..."
+  exit 123
 fi
