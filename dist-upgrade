@@ -3,8 +3,9 @@
 # Result: Fetches apt updates and runs apt dist-upgrade.
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: dist-upgrade (no arguments)"
-  echo "Result: Fetches updates and updates the system. Works on Ubuntu family"
-  echo "of systems, as well as on openSUSE."
+  echo "Result: Fetches updates and updates the system."
+  echo "Afterwards, it runs automatic cleaning."
+  echo "Works on Ubuntu family of systems, has partial support for openSUSE."
   echo
   echo "Requires root permissions."
 else
@@ -17,6 +18,8 @@ else
     echo "Ubuntu family, will use apt-get"
     sudo apt-get update
     sudo apt-get dist-upgrade
+    sudo apt-get autoremove
+    sudo apt-get autoclean
     echo "Done"
     exit
   fi
