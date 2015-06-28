@@ -5,5 +5,15 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo
   echo "Requires git."
 else
-  git commit
+  if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ; then
+    git commit
+    exit
+  fi
+  
+  if svn info . > /dev/null 2>&1 ; then
+    svn commit .
+    exit
+  fi
+  
+  echo "Neither git not SVN repository was found"
 fi
