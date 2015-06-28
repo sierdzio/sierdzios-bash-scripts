@@ -12,6 +12,6 @@ else
   fi
 
   echo "################"
-  fortune -a
+  fortune -a | cowsay
   echo "################"
 fi

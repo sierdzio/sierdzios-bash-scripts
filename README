@@ -3,24 +3,21 @@ sierdzio's bin scripts - an useful collection of bash scripts.
 Distributed under GNU GPLv3 license.
 
 Those currently include:
-  (name)                (dependencies)   (description)
- - a                    (git)           - synonym for git add .
- - archive              (pbzip2|xz, tar)- packs the file/ folder given as ${1}
-                                          into an tar.bz2 archive, adds current
-                                          date to it's name
- - automount            (mount, sudo)   - a stub for mounting drives easily
- - c                    (git)           - a synonym for git commit
- - dcrawrecursive       (dcraw)         - runs dcraw -T recursively on every
-                                          file in folders below and including current one
- - cr22jpeg             (dcraw, imagemagick) - recursively converts all CR2 files into JPEG
- - dist-upgrade         (sudo, apt-get) - runs a repo update and distribution upgrade
- - fuck                 (fortunes)      - displays a fortune cookie when
-                                          you are desperate enough to curse on terminal
- - gitpush2gitoriousAndGithub (git)     - push a branch named in the first argument to both
-                                          gitorious and github. Requires remotes to be set up
- - grep_error           (grep)          - greps for errors (old script, needs review)
- - s                    (git)           - synonym for git status
- - setCpuFrequency      (cpufrequtils)  - sets CPU frequency (all cores!) to a given value
- - updateQmlVersion     (sed)           - updates all files below current folder
-                                          from one Qml version to another
- - upgrade              (sudo, apt-get) - performs a repo update and system upgrade
+  (name)            (dependencies)   (description)
+ - a                (git|svn)        - synonym for git add . or svn add .
+ - archive          (pbzip2|xz, tar) - packs the file/ folder given into 
+                                       a tar.bz2 or xz archive, adds current
+                                       date to it's name
+ - c                (git|svn)        - a synonym for git commit, svn commit
+ - cr22jpeg     (dcraw, imagemagick) - recursively converts all CR2 files
+                                       into JPEG
+ - dist-upgrade     (sudo, apt-get)  - runs a repo update and distribution upgrade
+ - fuck             (fortunes)       - displays a fortune cookie when
+                                      you are desperate enough to curse on
+                                      terminal
+ - s                (git|svn)        - synonym for git status or svn status
+ - updateQmlVersion (sed)            - updates all files below current folder
+                                      from one Qml version to another
+
+Not all scripts include error checking and many are not really finished - so use
+with care.
