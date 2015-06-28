@@ -6,6 +6,11 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo
   echo "Requires fortunes. Will also use fortunes-off if available."
 else
+  if [ -z $(which fortune) ]; then
+    echo "fortune has not been found, please install it. Aborting"
+    return 1
+  fi
+
   echo "################"
   fortune -a
   echo "################"

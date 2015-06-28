@@ -5,7 +5,7 @@ Distributed under GNU GPLv3 license.
 Those currently include:
   (name)                (dependencies)   (description)
  - a                    (git)           - synonym for git add .
- - archive              (pbzip2, tar)   - packs the file/ folder given as ${1}
+ - archive              (pbzip2|xz, tar)- packs the file/ folder given as ${1}
                                           into an tar.bz2 archive, adds current
                                           date to it's name
  - automount            (mount, sudo)   - a stub for mounting drives easily
