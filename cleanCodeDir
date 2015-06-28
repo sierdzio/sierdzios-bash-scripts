@@ -6,25 +6,17 @@ recursiverm() {
 for d in *; do
   if [ -d "$d" ]; then
     (cd "$d"
-    echo Entered $PWD
+    #echo Entered $PWD # debug
     recursiverm)
   else
     REMOVE=false
-    if [[ $d == *~ ]]; then
+    #echo Current file $(pwd)/$d # debug
+    if [[ $d == *~ ]] || [[ $d == *.o ]] || [[ $d == moc_* ]] || [[ $d == Makefile ]] || [[ $d == *.obj ]]; then
       REMOVE=true
-    elif [[ $d == *.o ]]; then
-      REMOVE=true
-    elif [[ $d == moc_* ]]; then
-      REMOVE=true
-    elif [[ $d == Makefile ]]; then
-      REMOVE=true
-    elif [[ $d == *.o ]]; then
-      REMOVE=true
-    fi
-    
+    fi    
     
     if $REMOVE ; then
-      echo Removing $d
+      echo Removing $(pwd)/$d
       rm $d
     fi
   fi
