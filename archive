@@ -2,12 +2,38 @@
 # Usage: archive FILE
 # Output: filename_yyyy.MM.dd.tar.bz2
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: archive FILE"
+  echo "Usage: archive [-x|--xz] FILE_OR_DIRECTORY"
   echo "Output: filename_yyyy.MM.dd.tar.bz2"
   echo
-  echo "Compression is performed using parallel bzip2 (pbzip2)."
+  echo "Compression is performed using parallel bzip2 (pbzip2) by default."
+  echo "Pass -x or --xz to use xz instead."
+  echo "Does only support directly available files or folders (don't pass "
+  echo "path/to/my_file.txt, first cd into path/to, then run archive "
+  echo "my_file.txt). Trailing slash (for directories) will be stripped "
+  echo "automatically."
 else
+  ARCHIVER=pbzip2
+  ITEM_TO_ARCHIVE=$1
+  
+  if [ "${1}" = "-x" ] || [ "${1}" = "--xz" ]; then
+    ARCHIVER=xz
+    ITEM_TO_ARCHIVE=${2}
+  fi 
+ 
+  if [ -z $(which $ARCHIVER) ]; then
+    echo "$ARCHIVER has not been found. Aborting"
+    return 1
+  fi
+  
+  # Strip forward slashes from the path
+  ITEM_TO_ARCHIVE=${ITEM_TO_ARCHIVE%/}
+
+  # Construct the output file name
   COMMAND="_$(date +%Y.%m.%d).tar"
-  tar -cf "${1}"$COMMAND "${1}"
-  pbzip2 -v "${1}"$COMMAND
+  
+  # Create tar package
+  tar -cf "$ITEM_TO_ARCHIVE"$COMMAND "$ITEM_TO_ARCHIVE"
+  
+  # Pack using chosen archiver
+  $ARCHIVER -v "$ITEM_TO_ARCHIVE"$COMMAND
 fi
