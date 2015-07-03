@@ -1,12 +1,12 @@
 #!/bin/sh
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: a"
-  echo "Synonym to git add ."
+  echo "Synonym to git add --all . or svn add ."
   echo
-  echo "Requires git."
+  echo "Requires git or svn."
 else
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ; then
-    git add .
+    git add --all .
     exit
   fi
   
