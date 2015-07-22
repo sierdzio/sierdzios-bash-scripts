@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: tmuxrun"
+  echo "Starts tmux with 2 vertical panes."
+  echo
+  echo "Requires tmux."
+else
+  tmux new-session \; split-window \; select-layout even-horizontal
+fi

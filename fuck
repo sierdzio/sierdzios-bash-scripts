@@ -1,10 +1,11 @@
 #! /bin/bash
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: fuck"
+  echo "Usage: fuck [-c]"
   echo "Use when annoyed, because the code is not working, etc. Displays"
   echo "a random fortune cookie (including offensive ones!)."
+  echo "Use -c to print the cookie using cowsay."
   echo
-  echo "Requires fortunes. Will also use fortunes-off if available."
+  echo "Requires fortunes and cowsay. Will also use fortunes-off if available."
 else
   if [ -z $(which fortune) ]; then
     echo "fortune has not been found, please install it. Aborting"
@@ -12,6 +13,10 @@ else
   fi
 
   echo "################"
-  fortune -a | cowsay
+  if [ "${1}" = "-c"  ]; then
+    fortune -a | cowsay
+  else
+    fortune -a
+  fi
   echo "################"
 fi
