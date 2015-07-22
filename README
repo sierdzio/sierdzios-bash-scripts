@@ -18,6 +18,7 @@ Those currently include:
  - s                (git|svn)        - synonym for git status or svn status
  - updateQmlVersion (sed)            - updates all files below current folder
                                       from one Qml version to another
+ - tmuxrun          (tmux)           - open tmux with 2 vertical panes
 
 Not all scripts include error checking and many are not really finished - so use
 with care.
