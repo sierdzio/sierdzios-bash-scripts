@@ -1,0 +1,43 @@
+#!/bin/sh
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: sudo linuxPostInstall"
+  echo "Performs the usuall post-installation steps for my Linux installations."
+  echo
+  echo "Steps taken are (in this order):"
+  echo "  Install build dependencies for Qt 5"
+  echo "  Installs: build-essentials, git, gitk, svn, mesa-utils, yakuake, kate,"
+  echo "  VLC, pbzip2, fortunes (full), cowsay, krusader"
+  echo "  Uninstalls: dragonplayer"
+  echo "  Updates and upgrades the whole system"
+  echo
+  echo "This script is not finished yet"
+  echo "For now, this is only prepared for and tested on *buntu family of OSes."
+  exit
+fi
+
+OS=$(lsb_release -a)
+UBUNTU=$(echo $OS | grep buntu)
+SUSE=$(echo $OS | grep SUSE)
+CURRENT_DIR=$(pwd)
+
+if [ -n "${UBUNTU}" ]; then
+  echo "Ubuntu family"
+  sudo apt-get update
+  sudo apt-get build-dep qt5-qmake
+  sudo apt-get install build-essential git gitk subversion mesa-utils, yakuake, kate, vlc, pbzip2, fortunes fortunes-off cowsay krusader
+  sudo apt-get purge dragonplayer
+  sudo apt-get dist-upgrade
+  sudo apt-get autoremove
+  sudo apt-get autoclean
+  cd
+  git clone git@github.com:sierdzio/sierdzios-bash-scripts.git bin
+  . .profile
+  cd $CURRENT_DIR
+else
+  echo "Unknown OS, bailing out"
+  exit 2
+fi
+
+
+
+
