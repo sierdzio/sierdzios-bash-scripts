@@ -22,13 +22,23 @@ CURRENT_DIR=$(pwd)
 
 if [ -n "${UBUNTU}" ]; then
   echo "Ubuntu family"
+  echo
+  echo "### Running update"
   sudo apt-get update
+  echo "### Installing build dependencies"
   sudo apt-get build-dep qt5-qmake
-  sudo apt-get install build-essential git gitk subversion mesa-utils, yakuake, kate, vlc, pbzip2, fortunes fortunes-off cowsay krusader
+  echo "### Installing new applications"
+  sudo apt-get install build-essential git gitk subversion mesa-utils, \
+       yakuake, kate, vlc, pbzip2, fortunes fortunes-off cowsay krusader \
+       openjdk-7-jdk
+  echo "### Removing unnecessary applications"
   sudo apt-get purge dragonplayer
+  echo "### Running system upgrade"
   sudo apt-get dist-upgrade
+  echo "### Removing obsolete packages and installation leftovers"
   sudo apt-get autoremove
   sudo apt-get autoclean
+  echo "### Adding useful bash scripts (requires GitHub account)"
   cd
   git clone git@github.com:sierdzio/sierdzios-bash-scripts.git bin
   . .profile
