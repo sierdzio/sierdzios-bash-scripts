@@ -24,6 +24,8 @@ if [ -n "${UBUNTU}" ]; then
   echo "Ubuntu family"
   echo
   echo "### Adding Linux data partition to fstab"
+  sudo mkdir /mnt/data
+  sudo chown -R $USER /mnt/data
   sudo cp /etc/fstab /etc/fstab.bak
   sudo cat >>/etc/fstab <<EOL
 # tuxdata drive /dev/sdb5
@@ -35,10 +37,11 @@ EOL
   echo "### Adding symlinks to popular destinations from Linux data partition"
   echo "  Removing dirs from $HOME"
   rm -rf $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Music
-  sl -s /mnt/data/documents $HOME/Documents
-  sl -s /mnt/data/downloads $HOME/Downloads
-  sl -s /mnt/data/pictures $HOME/Pictures
-  sl -s /mnt/data/music $HOME/Music
+  ln -s /mnt/data/documents $HOME/Documents
+  ln -s /mnt/data/downloads $HOME/Downloads
+  ln -s /mnt/data/pictures $HOME/Pictures
+  ln -s /mnt/data/music $HOME/Music
+  ln -s /mnt/data $HOME/data
   echo "### Running update"
   sudo apt-get update
   echo "### Installing build dependencies"
