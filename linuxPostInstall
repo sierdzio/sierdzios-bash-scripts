@@ -60,7 +60,7 @@ EOL
   echo "### Adding useful bash scripts (requires GitHub account)"
   cd
   git clone git@github.com:sierdzio/sierdzios-bash-scripts.git bin
-  . .profile
+  . $HOME/.profile
   cd $CURRENT_DIR
 else
   echo "Unknown OS, bailing out"
