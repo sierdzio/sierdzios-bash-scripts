@@ -23,6 +23,22 @@ CURRENT_DIR=$(pwd)
 if [ -n "${UBUNTU}" ]; then
   echo "Ubuntu family"
   echo
+  echo "### Adding Linux data partition to fstab"
+  sudo cp /etc/fstab /etc/fstab.bak
+  sudo cat >>/etc/fstab <<EOL
+# tuxdata drive /dev/sdb5
+
+UUID=27b90427-364e-4f8a-9fc4-ad5f420b1784 /mnt/data ext4 defaults 0 3
+
+EOL
+  sudo mount -a
+  echo "### Adding symlinks to popular destinations from Linux data partition"
+  echo "  Removing dirs from $HOME"
+  rm -rf $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Music
+  sl -s /mnt/data/documents $HOME/Documents
+  sl -s /mnt/data/downloads $HOME/Downloads
+  sl -s /mnt/data/pictures $HOME/Pictures
+  sl -s /mnt/data/music $HOME/Music
   echo "### Running update"
   sudo apt-get update
   echo "### Installing build dependencies"
