@@ -3,4 +3,10 @@
 *.pro.user*
 *.kate-swp
 *~
-Makefile
+Makefile*
+.qmake.stash
+*.rc
+*.qm
+.DS_Store
+build-*
+*.qch

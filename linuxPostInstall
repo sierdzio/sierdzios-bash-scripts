@@ -47,8 +47,8 @@ EOL
   echo "### Installing build dependencies"
   sudo apt-get build-dep qt5-qmake
   echo "### Installing new applications"
-  sudo apt-get install build-essential git gitk subversion mesa-utils, \
-       yakuake, kate, vlc, pbzip2, fortunes fortunes-off cowsay krusader \
+  sudo apt-get install build-essential git gitk subversion mesa-utils \
+       yakuake kate vlc pbzip2 fortunes fortunes-off cowsay krusader \
        openjdk-7-jdk
   echo "### Removing unnecessary applications"
   sudo apt-get purge dragonplayer
