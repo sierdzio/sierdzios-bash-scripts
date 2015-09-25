@@ -1,6 +1,7 @@
 sierdzio's bin scripts - an useful collection of bash scripts.
 
-Distributed under GNU GPLv3 license.
+Distributed under WTFPL license, version 2. See the LICENSE file
+for more information, or visit www.wtfpl.net/about
 
 Those currently include:
   (name)            (dependencies)   (description)
@@ -11,16 +12,17 @@ Those currently include:
  - c                (git|svn)        - a synonym for git commit, svn commit
  - cr22jpeg     (dcraw, imagemagick) - recursively converts all CR2 files
                                        into JPEG
- - dist-upgrade     (sudo, apt-get)  - runs a repo update and distribution upgrade
+ - dist-upgrade     (sudo, apt-get)  - runs a repo update and distribution
+                                       upgrade
  - fuck             (fortunes)       - displays a fortune cookie when
-                                      you are desperate enough to curse on
-                                      terminal
- - linuxPostInstall                  - performs the usual steps I take after installing
-                                      Linux
+                                       you are desperate enough to curse on
+                                       terminal
+ - linuxPostInstall                  - performs the usual steps I take after
+                                       installing Linux
  - s                (git|svn)        - synonym for git status or svn status
  - updateQmlVersion (sed)            - updates all files below current folder
-                                      from one Qml version to another
+                                       from one Qml version to another
  - tmuxrun          (tmux)           - open tmux with 2 vertical panes
 
-Not all scripts include error checking and many are not really finished - so use
-with care.
+Not all scripts include error checking and many are not really finished
+- so use with care.
