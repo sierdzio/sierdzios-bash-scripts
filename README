@@ -1,5 +1,8 @@
 sierdzio's bin scripts - an useful collection of bash scripts.
 
+I ususally clone the repo into $HOME/bin and thus these scripts
+are available every time I open the terminal.
+
 Distributed under WTFPL license, version 2. See the LICENSE file
 for more information, or visit www.wtfpl.net/about
 
