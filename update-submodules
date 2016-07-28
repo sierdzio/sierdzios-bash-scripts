@@ -1,0 +1,17 @@
+#!/bin/sh
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: $(basename $0)"
+  echo "Checks out newest commit from remote master branch on all submodules"
+  echo
+  echo "You need to add another commit to ensure this is saved (git commit -a)"
+  exit
+fi
+
+git submodule foreach --recursive 'git checkout -t origin/master; git checkout master; git branch; git pull'
+
+echo "### ### ###"
+echo "Updated submodules. Running git status..."
+
+git status
+
+echo "Please deal with what you see yourself :-)"
