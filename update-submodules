@@ -7,7 +7,9 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-git submodule foreach --recursive 'git checkout -t origin/master; git checkout master; git branch; git pull'
+echo "Updating submodules to their master branches"
+
+git submodule foreach --recursive 'echo "== Updating $(pwd) ==";git checkout -t origin/master; git checkout master; git branch; git pull'
 
 echo "### ### ###"
 echo "Updated submodules. Running git status..."
