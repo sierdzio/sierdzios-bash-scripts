@@ -6,8 +6,13 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Requires git or svn."
 else
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 ; then
-    git commit
-    exit
+    if [ -z $1 ] ; then
+      git commit
+      exit
+    else
+      git checkout $1
+      exit
+    fi
   fi
   
   if svn info . > /dev/null 2>&1 ; then
