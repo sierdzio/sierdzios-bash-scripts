@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "Usage: disableGitHook"
+  echo "Disables pre-commit hook"
+else
+  mv .git/hooks/pre-commit .git/hooks/pre-commit.bak
+fi
