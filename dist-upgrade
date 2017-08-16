@@ -16,10 +16,10 @@ else
 
   if [ -n "${UBUNTU}" ]; then
     echo "Ubuntu family, will use apt-get"
-    sudo apt-get update
-    sudo apt-get dist-upgrade
-    sudo apt-get autoremove
-    sudo apt-get autoclean
+    sudo apt update
+    sudo apt dist-upgrade
+    sudo apt autoremove
+    sudo apt autoclean
     echo "Done"
     exit
   fi
