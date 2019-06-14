@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo ~/android/sdk/platform-tools/adb kill-server
+sudo ~/android/sdk/platform-tools/adb start-server
+~/android/sdk/platform-tools/adb devices
