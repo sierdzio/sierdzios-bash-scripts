@@ -23,33 +23,34 @@ CURRENT_DIR=$(pwd)
 if [ -n "${UBUNTU}" ]; then
   echo "Ubuntu family"
   echo
-  echo "### Adding Linux data partition to fstab"
-  sudo mkdir /mnt/data
-  sudo chown -R $USER /mnt/data
-  sudo cp /etc/fstab /etc/fstab.bak
-  sudo cat >>/etc/fstab <<EOL
+#  echo "### Adding Linux data partition to fstab"
+#  sudo mkdir /mnt/data
+#  sudo chown -R $USER /mnt/data
+#  sudo cp /etc/fstab /etc/fstab.bak
+#  sudo cat >>/etc/fstab <<EOL
 # tuxdata drive /dev/sdb5
+#
+#UUID=27b90427-364e-4f8a-9fc4-ad5f420b1784 /mnt/data ext4 defaults 0 3
+#
+#EOL
 
-UUID=27b90427-364e-4f8a-9fc4-ad5f420b1784 /mnt/data ext4 defaults 0 3
-
-EOL
-  sudo mount -a
-  echo "### Adding symlinks to popular destinations from Linux data partition"
-  echo "  Removing dirs from $HOME"
-  rm -rf $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Music
-  ln -s /mnt/data/documents $HOME/Documents
-  ln -s /mnt/data/downloads $HOME/Downloads
-  ln -s /mnt/data/pictures $HOME/Pictures
-  ln -s /mnt/data/music $HOME/Music
-  ln -s /mnt/data $HOME/data
+  #sudo mount -a
+#  echo "### Adding symlinks to popular destinations from Linux data partition"
+#  echo "  Removing dirs from $HOME"
+#  rm -rf $HOME/Documents $HOME/Downloads $HOME/Pictures $HOME/Music
+#  ln -s /mnt/data/documents $HOME/Documents
+# ln -s /mnt/data/downloads $HOME/Downloads
+#  ln -s /mnt/data/pictures $HOME/Pictures
+#  ln -s /mnt/data/music $HOME/Music
+#  ln -s /mnt/data $HOME/data
   echo "### Running update"
   sudo apt-get update
   echo "### Installing build dependencies"
   sudo apt-get build-dep qt5-qmake
   echo "### Installing new applications"
-  sudo apt-get install build-essential git gitk subversion mesa-utils \
-       yakuake kate vlc pbzip2 fortunes fortunes-off cowsay krusader \
-       openjdk-7-jdk
+  sudo apt-get install build-essential git gitk mesa-utils \
+       yakuake vlc pbzip2 fortunes fortunes-off cowsay #\
+       #openjdk-14-jdk
   echo "### Removing unnecessary applications"
   sudo apt-get purge dragonplayer
   echo "### Running system upgrade"
