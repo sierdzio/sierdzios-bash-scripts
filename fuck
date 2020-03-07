@@ -12,11 +12,11 @@ else
     return 1
   fi
 
-  echo "################"
+#  echo "################"
   if [ "${1}" = "-c"  ]; then
     fortune -a | cowsay
   else
     fortune -a
   fi
-  echo "################"
+#  echo "################"
 fi

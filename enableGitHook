@@ -1,7 +1,0 @@
-#!/bin/sh
-if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: enableGitHook"
-  echo "Enables pre-commit hook"
-else
-  mv .git/hooks/pre-commit.bak .git/hooks/pre-commit
-fi

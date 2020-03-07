@@ -15,9 +15,9 @@ else
   SUSE=$(echo $OS | grep SUSE)
 
   if [ -n "${UBUNTU}" ]; then
-    echo "Ubuntu family, will use apt-get"
+    #echo "Ubuntu family, will use apt-get"
     sudo apt update
-    sudo apt dist-upgrade
+    sudo apt full-upgrade
     sudo apt autoremove
     sudo apt autoclean
     echo "Done"
@@ -25,10 +25,10 @@ else
   fi
 
   if [ -n "${SUSE}" ]; then
-    echo "SUSE family, will use zypper"
+    #echo "SUSE family, will use zypper"
     sudo zypper refresh
     sudo zypper update
-#    sudo zypper dist-upgrade
+    #sudo zypper dist-upgrade
     echo "Done"
     exit
   fi
