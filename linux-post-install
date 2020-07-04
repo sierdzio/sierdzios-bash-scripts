@@ -63,6 +63,12 @@ if [ -n "${UBUNTU}" ]; then
   git clone git@github.com:sierdzio/sierdzios-bash-scripts.git bin
   . $HOME/.profile
   cd $CURRENT_DIR
+  echo "Installing oh my zsh"
+  sudo apt install zsh fonts-powerline
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  echo "Please update .zshrc file manually"
 else
   echo "Unknown OS, bailing out"
   exit 2
