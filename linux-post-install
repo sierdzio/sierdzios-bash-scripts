@@ -68,6 +68,25 @@ if [ -n "${UBUNTU}" ]; then
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  echo "Getting powerline10k"
+  echo "Downloading extra font: MesloLGS"
+  wget -O ~/Downloads/MesloLGS-NF-Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+  wget -O ~/Downloads/MesloLGS-NF-Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+  wget -O ~/Downloads/MesloLGS-NF-Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+  wget -O ~/Downloads/MesloLGS-NF-Bold-Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+  echo "Installing fonts..."
+  mkdir -p ~/.local/share/fonts
+  mv ~/Downloads/MesloLGS-NF-Regular.ttf ~/.local/share/fonts/MesloLGS-NF-Regular.ttf
+  mv ~/Downloads/MesloLGS-NF-Bold.ttf ~/.local/share/fonts/MesloLGS-NF-Bold.ttf
+  mv ~/Downloads/MesloLGS-NF-Italic.ttf ~/.local/share/fonts/MesloLGS-NF-Italic.ttf
+  mv ~/Downloads/MesloLGS-NF-Bold-Italic.ttf ~/.local/share/fonts/MesloLGS-NF-Bold-Italic.ttf
+  fc-cache -f -v
+  echo "TODO: set MesloLGS NF Regular as your default font! More info:"
+  echo "https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k"
+  echo "Installing powerline10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+
   echo "Please update .zshrc file manually"
 else
   echo "Unknown OS, bailing out"
