@@ -49,7 +49,8 @@ if [ -n "${UBUNTU}" ]; then
   sudo apt-get build-dep qt5-qmake
   echo "### Installing new applications"
   sudo apt-get install build-essential git gitk mesa-utils \
-       yakuake vlc pbzip2 fortunes fortunes-off cowsay #\
+       yakuake vlc pbzip2 fortunes fortunes-off cowsay \
+       doxygen #\
        #openjdk-14-jdk
   echo "### Removing unnecessary applications"
   sudo apt-get purge dragonplayer
