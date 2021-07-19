@@ -1,0 +1,25 @@
+#!/bin/sh
+# Usage: gpsu
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "gpsu - git push set upstream"
+  echo ""
+  echo "This script automatically pushes current branch to "
+  echo "origin repository and copies Pull Request URL to "
+  echo "clipboard."
+  exit 0
+fi
+
+BRANCH=$(git branch --show-current)
+
+echo "Branch is: "$BRANCH
+
+# Source: https://daringfireball.net/2010/07/improved_regex_for_matching_urls
+
+URL=$(git push --set-upstream origin $BRANCH 2>&1 | grep -Eo '(http|https)://[a-zA-Z0-9./?=_%:-]*')
+
+echo "URL is: "$URL
+
+echo $URL | xclip -selection c
+
+echo "URL copied to clipboard!"
