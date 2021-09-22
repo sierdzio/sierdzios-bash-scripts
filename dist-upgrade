@@ -13,9 +13,21 @@ else
 
   UBUNTU=$(echo $OS | grep buntu)
   SUSE=$(echo $OS | grep SUSE)
+  RPI=$(echo $OS | grep Raspb)
+
+  if [ -n "${RPI}" ]; then
+    #echo "Raspberry, will use apt"
+    sudo apt update
+    sudo apt full-upgrade
+    sudo apt autoremove
+    sudo apt autoclean
+    sudo pip install motioneye --upgrade
+    echo "Done"
+    exit
+  fi
 
   if [ -n "${UBUNTU}" ]; then
-    #echo "Ubuntu family, will use apt-get"
+    #echo "Ubuntu family, will use apt"
     sudo apt update
     sudo apt full-upgrade
     sudo apt autoremove
