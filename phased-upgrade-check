@@ -1,0 +1,1 @@
+sudo apt show -a $(apt list --upgradable 2>&1 | grep / | cut -d/ -f1) 2>&1 | grep Phased | sort -n | uniq -c

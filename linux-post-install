@@ -46,11 +46,9 @@ if [ -n "${UBUNTU}" ]; then
   echo "### Running update"
   sudo apt-get update
   echo "### Installing build dependencies"
-  sudo apt-get build-dep qt5-qmake
+  #sudo apt-get build-dep qt5-qmake
   echo "### Installing new applications"
-  sudo apt-get install build-essential git gitk mesa-utils \
-       yakuake vlc pbzip2 fortunes fortunes-off cowsay \
-       doxygen #\
+  sudo apt-get install build-essential git gitk mesa-utils libx11-xcb-dev libglu1-mesa-dev yakuake vlc pbzip2 fortunes fortunes-off cowsay doxygen xclip #\
        #openjdk-14-jdk
   echo "### Removing unnecessary applications"
   sudo apt-get purge dragonplayer
