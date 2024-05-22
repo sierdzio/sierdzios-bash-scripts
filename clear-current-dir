@@ -1,0 +1,11 @@
+#!/bin/sh
+# Usage: clear-current-dir
+
+if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
+  echo "clear-current-dir"
+  echo ""
+  echo "Removes all directories and files from current directory"
+  exit 0
+fi
+
+rm -rf ./*
